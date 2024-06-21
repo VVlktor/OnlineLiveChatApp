@@ -1,5 +1,44 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.SignalR.Client;
+@inject NavigationManager NavManager
+@implements IAsyncDisposable
 
 <PageTitle>Index</PageTitle>
 
 <h1>Blazor server for live chat app</h1>
+
+@komenda;
+
+@foreach(var x in Connections.Users)
+{
+	<p>@x.Key - @x.Value</p>
+}
+
+
+@code{
+	private HubConnection? hubConnection;
+	private string komenda="";
+
+	protected override async Task OnInitializedAsync()
+	{
+		hubConnection = new HubConnectionBuilder()
+		.WithUrl(NavManager.ToAbsoluteUri("/chathub"))
+		.WithAutomaticReconnect()
+		.Build();
+		await hubConnection.StartAsync();
+
+		hubConnection.On<string>("ReceiveNewCommand", (command) =>
+		{
+			komenda = command;
+			InvokeAsync(StateHasChanged);
+		});
+	}
+
+	public async ValueTask DisposeAsync()
+	{
+		if (hubConnection is not null)
+		{
+			await hubConnection.DisposeAsync();
+		}
+	}
+}

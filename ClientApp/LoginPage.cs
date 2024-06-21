@@ -28,7 +28,7 @@ namespace ClientApp
 				MainPage mainPage = new(username);
 				mainPage.Show();
 			}
-			catch(Exception ex) 
+			catch(Exception ex)
 			{ 
 				Console.WriteLine(ex.Message);
 				ErrorMessage.Visible = true;
