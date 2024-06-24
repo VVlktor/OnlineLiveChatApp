@@ -22,9 +22,17 @@ namespace ClientApp
 			{
 				this.Invoke(new Action(() =>
 				{
-					//wyswietlenie wiadomosci
+					MessagesDisplayer.Text += $"{user}: {message}\n";
 				}));
 
+			});
+
+			connection.On<List<string>>("ReceiveUsersList", (List<string> UsersList) =>
+			{
+				this.Invoke(new Action(() =>
+				{
+					UsersToSelect.DataSource = UsersList;
+				}));
 			});
 
 			try
@@ -39,6 +47,18 @@ namespace ClientApp
 					//wyswietlic blad
 				}));
 			}
+		}
+
+		private async void SendMessageButton_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				await connection.InvokeAsync("SendMessage", UsersToSelect.SelectedItem, MessageInput.Text, username);
+		
+			}catch(Exception ex)
+			{
+                Console.WriteLine(ex.Message);
+            }
 		}
 	}
 }
