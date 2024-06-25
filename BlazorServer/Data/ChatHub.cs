@@ -11,8 +11,6 @@ namespace BlazorServer.Data
 			Connections.Users.Add(userName, connectionId);
 			await Clients.All.SendAsync("ReceiveNewCommand", "Dodano uzytkownika");
 			await Clients.All.SendAsync("ReceiveUsersList", Connections.Users.Keys.ToList());
-			
-
 		}
 
 		public async Task SendMessage(string receiver, string message, string sender)
