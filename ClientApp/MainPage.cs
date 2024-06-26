@@ -68,7 +68,7 @@ namespace ClientApp
 				MessagesClass.MessagesList.Add(new MessageD(UsersToSelect.SelectedItem.ToString(), MessageInput.Text, username));
 				UpdateChat();
 				await connection.InvokeAsync("SendMessage", UsersToSelect.SelectedItem, MessageInput.Text, username);
-
+				MessageInput.Text = "";
 			}
 			catch (Exception ex)
 			{

@@ -34,10 +34,18 @@
 			label1 = new Label();
 			label2 = new Label();
 			splitContainer1 = new SplitContainer();
-			ErrorMessage = new Label();
 			ErrorNotValidUser = new Label();
+			RegisterError = new Label();
+			ButtonRegister = new Button();
+			label5 = new Label();
+			label4 = new Label();
+			label3 = new Label();
+			RegisterInputPassword = new TextBox();
+			RegisterInputEmail = new TextBox();
+			RegisterInputUsername = new TextBox();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
 			splitContainer1.Panel1.SuspendLayout();
+			splitContainer1.Panel2.SuspendLayout();
 			splitContainer1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -70,9 +78,9 @@
 			label1.AutoSize = true;
 			label1.Location = new Point(23, 55);
 			label1.Name = "label1";
-			label1.Size = new Size(46, 20);
+			label1.Size = new Size(139, 20);
 			label1.TabIndex = 3;
-			label1.Text = "Login";
+			label1.Text = "Nazwa uzytkownika";
 			// 
 			// label2
 			// 
@@ -85,31 +93,32 @@
 			// 
 			// splitContainer1
 			// 
-			splitContainer1.Location = new Point(-1, 3);
+			splitContainer1.Dock = DockStyle.Fill;
+			splitContainer1.Location = new Point(0, 0);
 			splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
 			// 
 			splitContainer1.Panel1.Controls.Add(ErrorNotValidUser);
-			splitContainer1.Panel1.Controls.Add(ErrorMessage);
 			splitContainer1.Panel1.Controls.Add(UserPasswordInput);
 			splitContainer1.Panel1.Controls.Add(label2);
 			splitContainer1.Panel1.Controls.Add(ButtonLogin);
 			splitContainer1.Panel1.Controls.Add(label1);
 			splitContainer1.Panel1.Controls.Add(UserLoginInput);
-			splitContainer1.Size = new Size(799, 446);
-			splitContainer1.SplitterDistance = 407;
+			// 
+			// splitContainer1.Panel2
+			// 
+			splitContainer1.Panel2.Controls.Add(RegisterError);
+			splitContainer1.Panel2.Controls.Add(ButtonRegister);
+			splitContainer1.Panel2.Controls.Add(label5);
+			splitContainer1.Panel2.Controls.Add(label4);
+			splitContainer1.Panel2.Controls.Add(label3);
+			splitContainer1.Panel2.Controls.Add(RegisterInputPassword);
+			splitContainer1.Panel2.Controls.Add(RegisterInputEmail);
+			splitContainer1.Panel2.Controls.Add(RegisterInputUsername);
+			splitContainer1.Size = new Size(832, 479);
+			splitContainer1.SplitterDistance = 423;
 			splitContainer1.TabIndex = 5;
-			// 
-			// ErrorMessage
-			// 
-			ErrorMessage.AutoSize = true;
-			ErrorMessage.Location = new Point(109, 376);
-			ErrorMessage.Name = "ErrorMessage";
-			ErrorMessage.Size = new Size(194, 20);
-			ErrorMessage.TabIndex = 5;
-			ErrorMessage.Text = "Błąd połączenia z serwerem";
-			ErrorMessage.Visible = false;
 			// 
 			// ErrorNotValidUser
 			// 
@@ -121,16 +130,87 @@
 			ErrorNotValidUser.Text = "Błędna nazwa użytkownika lub hasło";
 			ErrorNotValidUser.Visible = false;
 			// 
+			// RegisterError
+			// 
+			RegisterError.AutoSize = true;
+			RegisterError.Location = new Point(152, 376);
+			RegisterError.Name = "RegisterError";
+			RegisterError.Size = new Size(107, 20);
+			RegisterError.TabIndex = 7;
+			RegisterError.Text = "Błąd rejestracji";
+			RegisterError.Visible = false;
+			// 
+			// ButtonRegister
+			// 
+			ButtonRegister.Location = new Point(32, 282);
+			ButtonRegister.Name = "ButtonRegister";
+			ButtonRegister.Size = new Size(338, 57);
+			ButtonRegister.TabIndex = 6;
+			ButtonRegister.Text = "Zarejestruj";
+			ButtonRegister.UseVisualStyleBackColor = true;
+			ButtonRegister.Click += ButtonRegister_Click;
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.Location = new Point(32, 188);
+			label5.Name = "label5";
+			label5.Size = new Size(47, 20);
+			label5.TabIndex = 5;
+			label5.Text = "Haslo";
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.Location = new Point(32, 123);
+			label4.Name = "label4";
+			label4.Size = new Size(46, 20);
+			label4.TabIndex = 4;
+			label4.Text = "Email";
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Location = new Point(32, 55);
+			label3.Name = "label3";
+			label3.Size = new Size(139, 20);
+			label3.TabIndex = 3;
+			label3.Text = "Nazwa użytkownika";
+			// 
+			// RegisterInputPassword
+			// 
+			RegisterInputPassword.Location = new Point(32, 211);
+			RegisterInputPassword.Name = "RegisterInputPassword";
+			RegisterInputPassword.Size = new Size(338, 27);
+			RegisterInputPassword.TabIndex = 2;
+			// 
+			// RegisterInputEmail
+			// 
+			RegisterInputEmail.Location = new Point(32, 146);
+			RegisterInputEmail.Name = "RegisterInputEmail";
+			RegisterInputEmail.Size = new Size(338, 27);
+			RegisterInputEmail.TabIndex = 1;
+			// 
+			// RegisterInputUsername
+			// 
+			RegisterInputUsername.Location = new Point(32, 78);
+			RegisterInputUsername.Name = "RegisterInputUsername";
+			RegisterInputUsername.Size = new Size(338, 27);
+			RegisterInputUsername.TabIndex = 0;
+			// 
 			// LoginPage
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 450);
+			ClientSize = new Size(832, 479);
 			Controls.Add(splitContainer1);
+			FormBorderStyle = FormBorderStyle.FixedToolWindow;
 			Name = "LoginPage";
 			Text = "Logowanie";
 			splitContainer1.Panel1.ResumeLayout(false);
 			splitContainer1.Panel1.PerformLayout();
+			splitContainer1.Panel2.ResumeLayout(false);
+			splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
 			splitContainer1.ResumeLayout(false);
 			ResumeLayout(false);
@@ -144,7 +224,14 @@
 		private Label label1;
 		private Label label2;
 		private SplitContainer splitContainer1;
-		private Label ErrorMessage;
 		private Label ErrorNotValidUser;
+		private TextBox RegisterInputPassword;
+		private TextBox RegisterInputEmail;
+		private TextBox RegisterInputUsername;
+		private Button ButtonRegister;
+		private Label label5;
+		private Label label4;
+		private Label label3;
+		private Label RegisterError;
 	}
 }

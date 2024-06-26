@@ -55,7 +55,7 @@
 			// 
 			// MessageInput
 			// 
-			MessageInput.Location = new Point(319, 352);
+			MessageInput.Location = new Point(319, 482);
 			MessageInput.Name = "MessageInput";
 			MessageInput.Size = new Size(469, 27);
 			MessageInput.TabIndex = 3;
@@ -63,11 +63,11 @@
 			// 
 			// SendMessageButton
 			// 
-			SendMessageButton.Location = new Point(319, 395);
+			SendMessageButton.Location = new Point(319, 530);
 			SendMessageButton.Name = "SendMessageButton";
-			SendMessageButton.Size = new Size(469, 43);
+			SendMessageButton.Size = new Size(469, 66);
 			SendMessageButton.TabIndex = 4;
-			SendMessageButton.Text = "button1";
+			SendMessageButton.Text = "Wyslij widaomosc";
 			SendMessageButton.UseVisualStyleBackColor = true;
 			SendMessageButton.Click += SendMessageButton_Click;
 			// 
@@ -77,21 +77,22 @@
 			MessagesDisplayer.ItemHeight = 20;
 			MessagesDisplayer.Location = new Point(319, 37);
 			MessagesDisplayer.Name = "MessagesDisplayer";
-			MessagesDisplayer.Size = new Size(469, 284);
+			MessagesDisplayer.Size = new Size(469, 424);
 			MessagesDisplayer.TabIndex = 6;
 			// 
 			// MainPage
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 450);
+			ClientSize = new Size(805, 608);
 			Controls.Add(MessagesDisplayer);
 			Controls.Add(SendMessageButton);
 			Controls.Add(MessageInput);
 			Controls.Add(label1);
 			Controls.Add(UsersToSelect);
+			FormBorderStyle = FormBorderStyle.FixedToolWindow;
 			Name = "MainPage";
-			Text = "MainPage";
+			Text = "Czat";
 			ResumeLayout(false);
 			PerformLayout();
 		}

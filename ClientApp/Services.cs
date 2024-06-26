@@ -17,17 +17,31 @@ namespace ClientApp
 			{
 				var response = await client.PostAsync("http://localhost/ApiLiveChatApp/login.php", parameters);
 				bool content = bool.Parse(await response.Content.ReadAsStringAsync());
-				if (!content)
-				{
-					return false;
-				}
-				return true;
+				return content;
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
 				return false;
 			}
+		}
+
+		public static async Task<bool> Register(string username, string email, string password)
+		{
+			HttpClient client = new();
+			Dictionary<string, string> parametersDict = new Dictionary<string, string> { { "username", username }, { "email", email}, { "password", password } };
+			var parameters = new FormUrlEncodedContent(parametersDict);
+			try
+			{
+				var response = await client.PostAsync("http://localhost/ApiLiveChatApp/register.php", parameters);
+				bool content = bool.Parse(await response.Content.ReadAsStringAsync());
+				return content;
+			}
+			catch(Exception ex)
+			{
+				return false;
+			}
+
 		}
 	}
 }
