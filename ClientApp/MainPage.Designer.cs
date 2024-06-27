@@ -37,44 +37,50 @@
 			// 
 			// UsersToSelect
 			// 
+			UsersToSelect.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
 			UsersToSelect.FormattingEnabled = true;
 			UsersToSelect.Location = new Point(12, 37);
 			UsersToSelect.Name = "UsersToSelect";
-			UsersToSelect.Size = new Size(285, 28);
+			UsersToSelect.Size = new Size(285, 33);
 			UsersToSelect.TabIndex = 0;
 			UsersToSelect.SelectedValueChanged += ChangedChat;
 			// 
 			// label1
 			// 
 			label1.AutoSize = true;
+			label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
 			label1.Location = new Point(13, 9);
 			label1.Name = "label1";
-			label1.Size = new Size(145, 20);
+			label1.Size = new Size(177, 25);
 			label1.TabIndex = 1;
 			label1.Text = "Aktywni użytkownicy";
 			// 
 			// MessageInput
 			// 
+			MessageInput.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
 			MessageInput.Location = new Point(319, 482);
 			MessageInput.Name = "MessageInput";
-			MessageInput.Size = new Size(469, 27);
+			MessageInput.Size = new Size(469, 31);
 			MessageInput.TabIndex = 3;
 			MessageInput.KeyDown += EnterClickedSendMsg;
 			// 
 			// SendMessageButton
 			// 
+			SendMessageButton.BackColor = Color.White;
+			SendMessageButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
 			SendMessageButton.Location = new Point(319, 530);
 			SendMessageButton.Name = "SendMessageButton";
 			SendMessageButton.Size = new Size(469, 66);
 			SendMessageButton.TabIndex = 4;
 			SendMessageButton.Text = "Wyslij widaomosc";
-			SendMessageButton.UseVisualStyleBackColor = true;
+			SendMessageButton.UseVisualStyleBackColor = false;
 			SendMessageButton.Click += SendMessageButton_Click;
 			// 
 			// MessagesDisplayer
 			// 
+			MessagesDisplayer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
 			MessagesDisplayer.FormattingEnabled = true;
-			MessagesDisplayer.ItemHeight = 20;
+			MessagesDisplayer.ItemHeight = 28;
 			MessagesDisplayer.Location = new Point(319, 37);
 			MessagesDisplayer.Name = "MessagesDisplayer";
 			MessagesDisplayer.Size = new Size(469, 424);
@@ -84,6 +90,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = Color.Silver;
 			ClientSize = new Size(805, 608);
 			Controls.Add(MessagesDisplayer);
 			Controls.Add(SendMessageButton);

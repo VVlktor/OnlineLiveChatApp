@@ -25,7 +25,6 @@ namespace BlazorServer.Data
 			Connections.Users.Remove(username.Key);
 			await Clients.All.SendAsync("ReceiveNewCommand", "Usunieto uzytkownika");
 			await Clients.All.SendAsync("ReceiveUsersList", Connections.Users.Keys.ToList());
-
 		}
 	}
 }

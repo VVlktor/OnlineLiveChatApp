@@ -38,8 +38,6 @@
 	public async ValueTask DisposeAsync()
 	{
 		if (hubConnection is not null)
-		{
 			await hubConnection.DisposeAsync();
-		}
 	}
 }

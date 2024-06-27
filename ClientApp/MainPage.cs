@@ -46,7 +46,7 @@ namespace ClientApp
 			{
 				this.Invoke(new Action(() =>
 				{
-					//wyswietlic blad
+					MessagesDisplayer.Items.Add(ex.Message);
 				}));
 			}
 		}
@@ -87,13 +87,10 @@ namespace ClientApp
 		}
 
 
-
 		private async void EnterClickedSendMsg(object sender, KeyEventArgs e)
 		{
 			if (Keys.Enter == e.KeyCode)
-			{
 				await SendMessage();
-			}
 		}
 	}
 }
